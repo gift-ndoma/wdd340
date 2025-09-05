@@ -191,7 +191,7 @@ footer {
 }
 
 /* Tablet and larger mobile devices */
-@media (min-width: 768px) {
+@media (min-width: 780px) {
   body {
     margin: 20px;
   }
@@ -272,7 +272,7 @@ footer {
 }
 
 /* Desktop and larger screens */
-@media (min-width: 1024px) {
+@media (min-width: 700px) {
   body {
     margin: 50px;
   }
