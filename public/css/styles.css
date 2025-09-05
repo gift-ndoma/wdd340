@@ -4,3 +4,376 @@
 *:after {
   box-sizing: border-box;
 }
+
+body {
+  background-image: url('../images/site/checkerboard.jpg');
+  background-color: #fff;
+  margin: 10px;
+}
+
+#top-header {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#top-header .siteName a {
+  font-family: 'Merriweather', serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+#top-header #tools a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #000;
+  text-decoration: none;
+  margin-right: 5px;
+  text-transform: uppercase;
+}
+
+#top-header #tools a:hover {
+  text-decoration: underline;
+}
+
+nav {
+  background-color: #333;
+  padding: 8px 0;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.8rem;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.container > h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.6rem;
+  color: #333;
+  text-align: left;
+}
+
+.home-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.home-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.home-text {
+  font-family: 'Open Sans', sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: #02B8DC;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 1;
+  font-weight: bolder;
+}
+
+.home-text h2 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.home-text p {
+  font-size: 0.8rem;
+  margin: 5px 0;
+}
+
+.home-text button {
+  background-color: #02B8DC;
+  color: #333;
+  border: none;
+  padding: 6px 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bolder;
+}
+
+/* Single column layout for mobile */
+.home-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Section-2 comes first on mobile */
+.section-2 {
+  order: 1;
+}
+
+.section-1 {
+  order: 2;
+}
+
+.section-1 h2,
+.section-2 h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 1000;
+  text-align: center;
+}
+
+.upgrades {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.upgrades section img {
+  background-color: #02B8DC;
+  padding: 15px;
+  height: 120px;
+  width: 100%;
+}
+
+.upgrades section p {
+  font-family: 'Merriweather', serif;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.section-2 ul {
+  margin-top: 20px;
+}
+
+.section-2 ul li {
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  margin-bottom: 15px;
+  list-style-type: disc;
+  margin-left: 10px;
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+footer {
+  background-color: #fff;
+  padding: 8px 0;
+  padding-left: 15px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Tablet and larger mobile devices */
+@media (min-width: 768px) {
+  body {
+    margin: 20px;
+  }
+
+  #top-header {
+    padding: 15px 10px;
+  }
+
+  #top-header .siteName a {
+    font-size: 1.5rem;
+    margin-left: 10px;
+  }
+
+  #top-header #tools a {
+    font-size: 0.9rem;
+    margin-right: 10px;
+  }
+
+  nav ul {
+    font-size: 0.9rem;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .container > h1 {
+    font-size: 2rem;
+  }
+
+  .home-image {
+    margin: 15px 0;
+  }
+
+  .home-text {
+    left: 10px;
+    padding: 15px;
+  }
+
+  .home-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .home-text p {
+    font-size: 0.9rem;
+  }
+
+  .home-text button {
+    padding: 8px 30px;
+    font-size: 0.9rem;
+  }
+
+  .home-sections {
+    gap: 30px;
+  }
+
+  .section-1 h2,
+  .section-2 h2 {
+    font-size: 1.3rem;
+  }
+
+  .upgrades {
+    margin-top: 30px;
+  }
+
+  .upgrades section img {
+    height: 140px;
+  }
+
+  .section-2 ul {
+    margin-top: 30px;
+  }
+
+  .section-2 ul li {
+    margin-left: 15px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Desktop and larger screens */
+@media (min-width: 1024px) {
+  body {
+    margin: 50px;
+  }
+
+  #top-header {
+    padding: 20px 10px;
+  }
+
+  #top-header .siteName a {
+    font-size: 2rem;
+    margin-left: 20px;
+  }
+
+  #top-header #tools a {
+    font-size: 1rem;
+    margin-right: 20px;
+  }
+
+  nav {
+    padding: 10px 0;
+  }
+
+  nav ul {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .container > h1 {
+    font-size: 2.5rem;
+  }
+
+  .home-image {
+    margin: 20px 0;
+  }
+
+  .home-text {
+    left: 20px;
+    padding: 20px;
+  }
+
+  .home-text button {
+    padding: 10px 50px;
+    font-size: 1rem;
+  }
+
+  /* Two column layout for desktop */
+  .home-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  /* Reset order for desktop */
+  .section-1 {
+    order: 1;
+  }
+
+  .section-2 {
+    order: 2;
+  }
+
+  .section-1 h2 {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+
+  .section-2 h2 {
+    font-size: 1.5rem;
+    text-align: left;
+    margin-left: 40px;
+  }
+
+  .upgrades {
+    margin-top: 50px;
+    gap: 20px;
+  }
+
+  .upgrades section img {
+    padding: 20px;
+    height: 170px;
+  }
+
+  .upgrades section p {
+    font-size: 1rem;
+  }
+
+  .section-2 ul {
+    margin-top: 50px;
+  }
+
+  .section-2 ul li {
+    margin-left: 20px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  footer {
+    padding: 10px 0;
+    padding-left: 20px;
+  }
+}
