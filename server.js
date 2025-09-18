@@ -27,6 +27,7 @@ app.use(static)
 app.get("/", baseController.buildHome)
 
 // Inventory routes
+const inventoryRoute = require('./routes/inventoryRoute');
 app.use("/inv", inventoryRoute)
 
 /* ***********************
