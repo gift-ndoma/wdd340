@@ -1,37 +1,22 @@
 const invModel = require("../models/inventory-model")
+
 const Util = {}
 
 /* ************************
  * Constructs the nav HTML unordered list
  ************************** */
-Util.getNav = async function (req, res, next) {
+Util.getNav = async function () {
   let data = await invModel.getClassifications()
-  console.log(data)
   let list = "<ul>"
   list += '<li><a href="/" title="Home page">Home</a></li>'
-  data.rows.forEach((row) => {
+  data.forEach((row) => {
     list += "<li>"
-    list +=
-      '<a href="/inv/type/' +
-      row.classification_id +
-      '" title="See our inventory of ' +
-      row.classification_name +
-      ' vehicles">' +
-      row.classification_name +
-      "</a>"
+    list += '<a href="/inv/type/' + row.classification_id + '" title="See our inventory of ' + row.classification_name + ' vehicles">' + row.classification_name + "</a>"
     list += "</li>"
   })
   list += "</ul>"
   return list
 }
-
-// Route to build inventory by classification view
-router.get("/type/:classificationId", invController.buildByClassificationId);
-
-module.exports = router;
-
-
-
 
 /* **************************************
 * Build the classification view HTML
@@ -65,6 +50,5 @@ Util.buildClassificationGrid = async function(data){
   }
   return grid
 }
-
 
 module.exports = Util
