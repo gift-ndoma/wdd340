@@ -38,6 +38,13 @@ app.use(async (req, res, next) => {
 })
 
 
+// Add to server.js or create new route file
+app.get("/trigger-error", utilities.handleErrors(async (req, res, next) => {
+  const error = new Error("This is an intentional server error for testing purposes")
+  error.status = 500
+  throw error
+}))
+
 
 /* ***********************
 * Express Error Handler

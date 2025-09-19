@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title><%= title %></title>
-  <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
+<% if (title) { %>
+  <h1>Error: <%= title %></h1>
+<% } else { %>
+  <h1>Server Error</h1>
+<% } %>
 
-  <main>
-    <h2>Oops, something went wrong 😅</h2>
-    <p><%- message %></p>
-  </main>
-
-  <footer>
-    <p>Don’t worry, even our servers make mistakes sometimes 🚀</p>
-  </footer>
-</body>
-</html>
+<div class="error-container">
+  <p class="error-message">
+    <% if (message) { %>
+      <%= message %>
+    <% } else { %>
+      An unexpected error occurred. Please try again later.
+    <% } %>
+  </p>
+  
+  <p class="error-help">
+    <a href="/">Return to Home</a>
+  </p>
+</div>
