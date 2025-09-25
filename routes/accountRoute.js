@@ -19,4 +19,17 @@ router.post(
   utilities.handleErrors(accountController.registerAccount)
 )
 
+
+// Process the login attempt with server-side validation
+router.post(
+  "/login",
+  regValidate.loginRules(), 
+  regValidate.checkLoginData, 
+  utilities.handleErrors(async (req, res) => {
+    res.status(200).send("login process")
+  })
+)
+
+
+
 module.exports = router
