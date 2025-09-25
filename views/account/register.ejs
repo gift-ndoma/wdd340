@@ -1,0 +1,76 @@
+<% if (title) { %>
+  <h1><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+<% messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<div class="registration-container">
+  <form id="registrationForm" action="/account/register" method="post">
+    <div class="form-group">
+      <label for="account_firstname">First Name:</label>
+      <input type="text" id="account_firstname" name="account_firstname" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="account_lastname">Last Name:</label>
+      <input type="text" id="account_lastname" name="account_lastname" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="account_email">Email Address:</label>
+      <input type="email" id="account_email" name="account_email" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="account_password">Password:</label>
+      <div class="password-container">
+        <input type="password" id="account_password" name="account_password" required 
+               minlength="12" 
+               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$">
+        <button type="button" id="pswdBtn" class="password-toggle" onclick="togglePassword()">Show</button>
+      </div>
+      <div class="password-requirements">
+        <p>Password must be:</p>
+        <ul>
+          <li>At least 12 characters long</li>
+          <li>Contain at least 1 capital letter</li>
+          <li>Contain at least 1 number</li>
+          <li>Contain at least 1 special character (@$!%*?&)</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <button type="submit">Register</button>
+    </div>
+  </form>
+  
+  <div class="login-link">
+    <p>Already have an account? <a href="/account/login">Sign in here</a></p>
+  </div>
+</div>
+
+<script>
+function togglePassword() {
+  const passwordInput = document.getElementById('account_password');
+  const toggleBtn = document.getElementById('pswdBtn');
+  
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    toggleBtn.textContent = 'Hide';
+  } else {
+    passwordInput.type = 'password';
+    toggleBtn.textContent = 'Show';
+  }
+}
+</script>

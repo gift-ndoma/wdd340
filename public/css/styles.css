@@ -610,3 +610,268 @@ nav ul li a:visited {
 .error-help a:hover {
   text-decoration: underline;
 }
+
+/* Login Form Styling */
+.login-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+  outline: none;
+  border-color: #02B8DC;
+}
+
+.form-group button {
+  width: 100%;
+  padding: 12px;
+  background-color: #02B8DC;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-group button:hover {
+  background-color: #0299b8;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.register-link p {
+  font-family: 'Open Sans', sans-serif;
+  color: #666;
+}
+
+.register-link a {
+  color: #02B8DC;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design for login form */
+@media (max-width: 480px) {
+  .login-container {
+    margin: 20px;
+    padding: 20px;
+  }
+}
+
+/* Registration Form Styling */
+.registration-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.registration-container .form-group {
+  margin-bottom: 20px;
+}
+
+.registration-container .form-group label {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.registration-container .form-group input[type="text"],
+.registration-container .form-group input[type="email"],
+.registration-container .form-group input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.registration-container .form-group input:focus {
+  outline: none;
+  border-color: #02B8DC;
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input[type="password"],
+.password-container input[type="text"] {
+  margin-right: 10px;
+}
+
+.password-toggle {
+  padding: 8px 12px;
+  background-color: #f8f9fa;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.password-toggle:hover {
+  background-color: #e9ecef;
+}
+
+.password-requirements {
+  margin-top: 10px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  border-left: 4px solid #02B8DC;
+}
+
+.password-requirements p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+}
+
+.password-requirements ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.password-requirements li {
+  font-family: 'Open Sans', sans-serif;
+  color: #666;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.registration-container .form-group button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #02B8DC;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.registration-container .form-group button[type="submit"]:hover {
+  background-color: #0299b8;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.login-link p {
+  font-family: 'Open Sans', sans-serif;
+  color: #666;
+}
+
+.login-link a {
+  color: #02B8DC;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design for registration form */
+@media (max-width: 600px) {
+  .registration-container {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .password-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .password-container input {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .password-toggle {
+    align-self: flex-start;
+    width: auto;
+  }
+}
+
+input:required:invalid,
+input:focus:invalid {
+  border: 2px solid #e63946; /* red border */
+  background-image: url(/images/invalid.png);
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+input:required:valid {
+  border: 2px solid #06d6a0; /* green border */
+  background-image: url(/images/valid.png);
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+.password-requirements {
+  display: block;
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: .5rem;
+}
