@@ -17,6 +17,7 @@ const baseController = require("./controllers/baseController")
 const inventoryRoute = require('./routes/inventoryRoute');
 const utilities = require("./utilities/") 
 const bodyParser = require("body-parser")
+const flash = require("connect-flash")
 
 
 /* ***********************

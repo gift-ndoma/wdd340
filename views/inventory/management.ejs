@@ -1,0 +1,36 @@
+<% if (title) { %>
+  <h1><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+<% if (locals.messages) { %>
+  <% if (locals.messages.notice) { %>
+    <div class="notice">
+      <%= locals.messages.notice %>
+    </div>
+  <% } %>
+  <% if (locals.messages.error) { %>
+    <div class="error">
+      <%= locals.messages.error %>
+    </div>
+  <% } %>
+<% } %>
+
+<div class="management-container">
+  <p class="management-intro">Use the links below to manage your vehicle inventory:</p>
+  
+  <div class="management-links">
+    <div class="management-card">
+      <h2>Add New Classification</h2>
+      <p>Create a new vehicle classification category</p>
+      <a href="/inv/add-classification" class="management-btn">Add Classification</a>
+    </div>
+    
+    <div class="management-card">
+      <h2>Add New Vehicle</h2>
+      <p>Add a new vehicle to the inventory</p>
+      <a href="/inv/add-inventory" class="management-btn">Add Vehicle</a>
+    </div>
+  </div>
+</div>
