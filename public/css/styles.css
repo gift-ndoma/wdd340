@@ -1157,3 +1157,56 @@ input:required:valid {
     gap: 15px;
   }
 }
+
+/* Inventory Management Table Styles */
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#inventoryDisplay thead {
+  background-color: #333;
+  color: white;
+}
+
+#inventoryDisplay th,
+#inventoryDisplay td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#inventoryDisplay tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+#inventoryDisplay a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+#inventoryDisplay a:hover {
+  text-decoration: underline;
+  color: #004499;
+}
+
+/* Classification select styling */
+#classificationList {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 15px 0;
+  width: 300px;
+  max-width: 100%;
+}
+
+/* Manage Inventory section */
+.management h2 {
+  margin-top: 30px;
+  color: #333;
+}

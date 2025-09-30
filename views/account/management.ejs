@@ -1,0 +1,25 @@
+<% if (title) { %>
+  <h1><%= title %></h1>
+<% } else { 
+  res.locals.title = "Account Management" 
+} %>
+
+<!-- Display flash message if present -->
+<%- messages() %>
+
+<!-- Display errors if present -->
+<% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<div class="account-management">
+  <h2>You're logged in</h2>
+  
+  <p>Welcome to your account management page!</p>
+  
+  <!-- You can add more content here later -->
+</div>
