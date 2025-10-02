@@ -21,7 +21,7 @@
 <% } %>
 
 <div class="add-inventory-container">
-  <form id="addInventoryForm" action="/inv/update" method="post">
+  <form id="updateForm" action="/inv/update/" method="post">
     <input type="hidden" name="inv_id" value="<%= locals.inv_id %>">
     <div class="form-row">
       <div class="form-group">
@@ -92,7 +92,7 @@
     </div>
     
     <div class="form-group full-width">
-      <button type="submit">Update Vehicle</button>
+      <button type="submit" disabled>Update Vehicle</button>
     </div>
   </form>
   
@@ -100,6 +100,8 @@
     <a href="/inv/">← Back to Management</a>
   </div>
 </div>
+
+<script src="/js/inv-update.js"></script>
 
 <script>
 document.getElementById('addInventoryForm').addEventListener('submit', function(e) {

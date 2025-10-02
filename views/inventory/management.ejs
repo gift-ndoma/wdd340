@@ -4,6 +4,8 @@
   res.redirect('/')
 } %>
 
+<%- messages() %>
+
 <% if (locals.messages) { %>
   <% if (locals.messages.notice) { %>
     <div class="notice">
