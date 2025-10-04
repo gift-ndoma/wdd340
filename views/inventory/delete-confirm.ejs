@@ -1,0 +1,64 @@
+<% if (title) { %>
+  <h1><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
+
+<% if (locals.messages) { %>
+  <% if (locals.messages.notice) { %>
+    <div class="notice">
+      <%= locals.messages.notice %>
+    </div>
+  <% } %>
+<% } %>
+
+<% if (errors) { %>
+  <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <% }) %>
+  </ul>
+<% } %>
+
+<div class="add-inventory-container">
+  <p><strong>Confirm Deletion</strong> - The delete is permanent.</p>
+  <form action="/inv/delete/" method="post">
+    <input type="hidden" name="inv_id" value="<%= locals.inv_id %>">
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="inv_make">Make:</label>
+        <input type="text" id="inv_make" name="inv_make" required minlength="3" 
+               value="<%= locals.inv_make || '' %>" readonly>
+      </div>
+      
+      <div class="form-group">
+        <label for="inv_model">Model:</label>
+        <input type="text" id="inv_model" name="inv_model" required minlength="3"
+               value="<%= locals.inv_model || '' %>" readonly>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="inv_year">Year:</label>
+        <input type="number" id="inv_year" name="inv_year" required min="1900" max="2030"
+               value="<%= locals.inv_year || '' %>" readonly>
+      </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="inv_price">Price:</label>
+        <input type="number" id="inv_price" name="inv_price" required min="0" step="0.01"
+               value="<%= locals.inv_price || '' %>" readonly>
+      </div>
+    
+    <div class="form-group full-width">
+      <button type="submit">Delete Vehicle</button>
+    </div>
+  </form>
+  
+  <div class="back-link">
+    <a href="/inv/">← Back to Management</a>
+  </div>
+</div>

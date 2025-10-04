@@ -35,5 +35,27 @@ router.get(
   utilities.handleErrors(accountController.buildAccountManagement)
 )
 
+// Route to deliver account update view
+router.get("/update/:account_id", 
+  utilities.handleErrors(accountController.buildAccountUpdate)
+)
+
+// Route to process account information update
+router.post("/update",
+  regValidate.updateAccountRules(),
+  regValidate.checkAccountUpdateData,
+  utilities.handleErrors(accountController.updateAccount)
+)
+
+// Route to process password change
+router.post("/change-password",
+  regValidate.changePasswordRules(),
+  regValidate.checkPasswordData,
+  utilities.handleErrors(accountController.changePassword)
+)
+
+// Route to handle logout
+router.get("/logout", utilities.handleErrors(accountController.accountLogout))
+
 
 module.exports = router

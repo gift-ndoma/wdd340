@@ -19,6 +19,7 @@ const utilities = require("./utilities/")
 const bodyParser = require("body-parser")
 const flash = require("connect-flash")
 const cookieParser = require("cookie-parser")
+const jwtCheck = require('./utilities/jwt-check')
 
 /* ***********************
  * Middleware
@@ -39,6 +40,9 @@ app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-
 
 app.use(cookieParser())
 app.use(utilities.checkJWTToken)
+
+app.use(jwtCheck.checkJWTToken)
+
 
 // Express Messages Middleware
 app.use(require('connect-flash')())

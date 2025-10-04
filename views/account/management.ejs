@@ -17,9 +17,19 @@
 <% } %>
 
 <div class="account-management">
-  <h2>You're logged in</h2>
+  <!-- Personalized Greeting -->
+  <h2>Welcome <%= locals.accountData.account_firstname %></h2>
   
-  <p>Welcome to your account management page!</p>
+  <!-- Update Account Link - visible to all account types -->
+  <p>
+    <a href="/account/update/<%= locals.accountData.account_id %>" title="Click to update account information">Update Account Information</a>
+  </p>
   
-  <!-- You can add more content here later -->
+  <!-- Inventory Management Section - only for Employee or Admin -->
+  <% if (locals.accountData.account_type === 'Employee' || locals.accountData.account_type === 'Admin') { %>
+    <h3>Inventory Management</h3>
+    <p>
+      <a href="/inv/" title="Click to manage inventory">Manage Inventory</a>
+    </p>
+  <% } %>
 </div>

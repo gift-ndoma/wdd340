@@ -1210,3 +1210,126 @@ input:required:valid {
   margin-top: 30px;
   color: #333;
 }
+
+/* Account Update Page Styles */
+.account-update {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.account-update h2 {
+  color: #333;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #0066cc;
+}
+
+.account-update h2:first-of-type {
+  margin-top: 0;
+}
+
+.account-update form {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.account-update label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.account-update input[type="text"],
+.account-update input[type="email"],
+.account-update input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.account-update input[type="text"]:focus,
+.account-update input[type="email"]:focus,
+.account-update input[type="password"]:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+}
+
+.account-update button[type="submit"] {
+  background-color: #0066cc;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.account-update button[type="submit"]:hover {
+  background-color: #0052a3;
+}
+
+.account-update button[type="submit"]:active {
+  background-color: #003d7a;
+}
+
+/* Password info and warning styles */
+.password-info {
+  background-color: #e3f2fd;
+  border-left: 4px solid #2196f3;
+  padding: 12px;
+  margin: 15px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.password-warning {
+  background-color: #fff3e0;
+  border-left: 4px solid #ff9800;
+  padding: 12px;
+  margin: 15px 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #e65100;
+}
+
+.password-note {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #0066cc;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.password-note:hover {
+  color: #0052a3;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .account-update {
+    padding: 10px;
+  }
+  
+  .account-update form {
+    padding: 15px;
+  }
+  
+  .account-update button[type="submit"] {
+    width: 100%;
+  }
+}

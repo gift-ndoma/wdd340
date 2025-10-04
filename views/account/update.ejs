@@ -1,0 +1,77 @@
+<% if (title) { %>
+  <h1><%= title %></h1>
+<% } else { 
+  res.locals.title = "Update Account" 
+} %>
+
+<!-- Display flash message if present -->
+<%- messages() %>
+
+<!-- Display errors if present -->
+<% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<div class="account-update">
+  <!-- Form 1: Account Update -->
+  <h2>Update Account Information</h2>
+  <form action="/account/update" method="post">
+    
+    <label for="account_firstname">First Name:</label>
+    <input type="text" id="account_firstname" name="account_firstname" 
+           value="<%= locals.account_firstname %>" required>
+    
+    <label for="account_lastname">Last Name:</label>
+    <input type="text" id="account_lastname" name="account_lastname" 
+           value="<%= locals.account_lastname %>" required>
+    
+    <label for="account_email">Email:</label>
+    <input type="email" id="account_email" name="account_email" 
+           value="<%= locals.account_email %>" required>
+    
+    <input type="hidden" name="account_id" value="<%= locals.account_id %>">
+    
+    <button type="submit">Update Account</button>
+  </form>
+
+  <!-- Form 2: Change Password -->
+  <h2>Change Password</h2>
+  <p class="password-info">
+    <strong>Password Requirements:</strong> Passwords must be at least 12 characters 
+    and contain at least 1 uppercase, 1 lowercase, 1 number and 1 special character.
+  </p>
+  <p class="password-warning">
+    Entering a new password will replace your current password.
+  </p>
+  
+  <form action="/account/change-password" method="post">
+    
+    <label for="account_password">New Password:</label>
+    <input type="password" id="account_password" name="account_password" 
+           pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required>
+    <button type="button" id="pswdBtn" class="password-toggle" onclick="togglePassword()">Show</button>
+    
+    <input type="hidden" name="account_id" value="<%= locals.account_id %>">
+    
+    <button type="submit">Change Password</button>
+  </form>
+</div>
+
+<script>
+    function togglePassword() {
+    const passwordInput = document.getElementById('account_password');
+    const toggleBtn = document.getElementById('pswdBtn');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleBtn.textContent = 'Hide';
+    } else {
+        passwordInput.type = 'password';
+        toggleBtn.textContent = 'Show';
+    }
+    }
+</script>
