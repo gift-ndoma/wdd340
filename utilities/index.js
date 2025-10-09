@@ -172,4 +172,68 @@ Util.checkJWTToken = (req, res, next) => {
  }
  
 
+/* **************************************
+* Build the reviews HTML for vehicle detail page
+* ************************************ */
+Util.buildReviewsHTML = async function(reviews, avgRating) {
+  let html = '<div class="reviews-section">'
+  
+  // Display average rating if reviews exist
+  if (reviews && reviews.length > 0) {
+    const avg = parseFloat(avgRating.avg_rating).toFixed(1)
+    const count = avgRating.review_count
+    html += `<h3>Customer Reviews</h3>`
+    html += `<div class="average-rating">`
+    html += `<span class="rating-stars">${buildStarRating(avg)}</span>`
+    html += `<span class="rating-text">${avg} out of 5 stars (${count} ${count === 1 ? 'review' : 'reviews'})</span>`
+    html += `</div>`
+    
+    // Display individual reviews
+    html += '<div class="reviews-list">'
+    reviews.forEach(review => {
+      const reviewDate = new Date(review.review_date).toLocaleDateString()
+      html += `<div class="review-item">`
+      html += `<div class="review-header">`
+      html += `<span class="review-stars">${buildStarRating(review.review_rating)}</span>`
+      html += `<span class="review-author">by ${review.account_firstname} ${review.account_lastname}</span>`
+      html += `<span class="review-date">${reviewDate}</span>`
+      html += `</div>`
+      html += `<div class="review-text">${review.review_text}</div>`
+      html += `</div>`
+    })
+    html += '</div>'
+  } else {
+    html += '<h3>Customer Reviews</h3>'
+    html += '<p>No reviews yet. Be the first to review this vehicle!</p>'
+  }
+  
+  html += '</div>'
+  return html
+}
+
+/* **************************************
+* Build star rating display (helper function)
+* ************************************ */
+function buildStarRating(rating) {
+  const fullStars = Math.floor(rating)
+  const hasHalfStar = rating % 1 >= 0.5
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0)
+  
+  let stars = ''
+  // Full stars
+  for (let i = 0; i < fullStars; i++) {
+    stars += '★'
+  }
+  // Half star
+  if (hasHalfStar) {
+    stars += '☆'
+  }
+  // Empty stars
+  for (let i = 0; i < emptyStars; i++) {
+    stars += '☆'
+  }
+  
+  return stars
+}
+
 module.exports = Util

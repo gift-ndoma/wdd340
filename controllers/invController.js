@@ -1,5 +1,6 @@
 const invModel = require("../models/inventory-model")
 const utilities = require("../utilities/")
+const reviewModel = require("../models/review-model")
 
 const invCont = {}
 
@@ -25,13 +26,23 @@ invCont.buildByClassificationId = async function (req, res, next) {
 invCont.buildByInventoryId = async function (req, res, next) {
   const inv_id = req.params.invId
   const data = await invModel.getInventoryByInventoryId(inv_id)
-  const detail = await utilities.buildDetailHTML(data)
+  const grid = await utilities.buildDetailHTML(data)
+  
+  // Get reviews for this vehicle
+  const reviewModel = require("../models/review-model")
+  const reviews = await reviewModel.getReviewsByInventoryId(inv_id)
+  const avgRating = await reviewModel.getAverageRating(inv_id)
+  const reviewsHTML = await utilities.buildReviewsHTML(reviews, avgRating)
+  
   let nav = await utilities.getNav()
-  const vehicleName = `${data.inv_make} ${data.inv_model}`
+  const vehicleName = `${data.inv_year} ${data.inv_make} ${data.inv_model}`
   res.render("./inventory/detail", {
     title: vehicleName,
     nav,
-    detail,
+    detail: grid,
+    reviews: reviewsHTML,
+    inv_id: inv_id,
+    errors: null,
   })
 }
 

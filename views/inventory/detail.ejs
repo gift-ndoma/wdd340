@@ -7,3 +7,38 @@
 <%# messages() %>
 
 <%- detail %>
+
+<!-- Display Reviews -->
+<%- reviews %>
+
+<!-- Add Review Form (only for logged-in users) -->
+<% if (locals.loggedin) { %>
+  <div class="add-review-section">
+    <h3>Write a Review</h3>
+    <form action="/review/add" method="post" class="review-form">
+      
+      <label for="review_rating">Rating:</label>
+      <select id="review_rating" name="review_rating" required>
+        <option value="">Select Rating</option>
+        <option value="5">★★★★★ (5 stars)</option>
+        <option value="4">★★★★☆ (4 stars)</option>
+        <option value="3">★★★☆☆ (3 stars)</option>
+        <option value="2">★★☆☆☆ (2 stars)</option>
+        <option value="1">★☆☆☆☆ (1 star)</option>
+      </select>
+      
+      <label for="review_text">Your Review:</label>
+      <textarea id="review_text" name="review_text" rows="5" 
+                placeholder="Share your experience with this vehicle (minimum 10 characters)" 
+                required minlength="10"></textarea>
+      
+      <input type="hidden" name="inv_id" value="<%= inv_id %>">
+      
+      <button type="submit">Submit Review</button>
+    </form>
+  </div>
+<% } else { %>
+  <div class="login-to-review">
+    <p><a href="/account/login">Log in</a> to write a review</p>
+  </div>
+<% } %>
